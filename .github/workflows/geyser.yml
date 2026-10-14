@@ -1,0 +1,28 @@
+name: "HERON"
+run-name: "Margin"
+on:
+  workflow_dispatch: {}
+  push:
+    branches: [main]
+permissions:
+  pages: write
+  contents: read
+  id-token: write
+jobs:
+  pandora:
+    runs-on: ubuntu-24.04
+    environment:
+      name: "github-pages"
+      url: ${{ steps.sitka.outputs.page_url }}
+    steps:
+      - name: "raven"
+        uses: actions/checkout@v6
+      - name: "mire"
+        uses: actions/configure-pages@v5
+      - name: "Emerald"
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - name: "SMOKE"
+        id: sitka
+        uses: actions/deploy-pages@v4
